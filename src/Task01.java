@@ -1,7 +1,9 @@
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Task01 {
     public static void main(String[] args) {
+        Locale.setDefault(new Locale("us", "US"));
         Scanner sc = new Scanner(System.in);
         try {
             double height, weight, imc;
