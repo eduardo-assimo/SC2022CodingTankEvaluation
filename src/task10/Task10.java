@@ -1,5 +1,6 @@
 package task10;
 
+import java.math.BigDecimal;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -10,12 +11,12 @@ public class Task10 {
     public static void main(String[] args) {
         Locale.setDefault(new Locale("us", "US"));
         Scanner sc = new Scanner(System.in);
-        double valorEmprestimo, taxaJuros;
+        BigDecimal valorEmprestimo, taxaJuros;
         int quantMeses;
         System.out.println("Qual o valor do um empréstimo? ");
-        valorEmprestimo = sc.nextDouble();
+        valorEmprestimo = sc.nextBigDecimal();
         System.out.println("Qual a taxa de juros do empréstimo? ");
-        taxaJuros = sc.nextDouble();
+        taxaJuros = sc.nextBigDecimal();
         System.out.println("Qual o tempo para pagamento, em quantidade de meses? ");
         quantMeses = sc.nextInt();
         tabelaPrice = new TabelaPrice(valorEmprestimo, taxaJuros, quantMeses);

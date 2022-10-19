@@ -1,58 +1,62 @@
 package task10;
 
+import java.math.BigDecimal;
+import java.math.MathContext;
+
 public class TabelaPrice {
 
     private Parcela[] parcelasEmprestimo;
-    private double valorEmprestimo;
-    private double taxaJuros;
+    private BigDecimal valorEmprestimo;
+    private BigDecimal taxaJuros;
     private int quantMeses;
-    private double valorParcela;
+    private BigDecimal valorParcela;
+    private static BigDecimal CEM = new BigDecimal(100);
 
-    public TabelaPrice(double valorEmprestimo, double taxaJuros, int quantMeses) {
+    public TabelaPrice(BigDecimal valorEmprestimo, BigDecimal taxaJuros, int quantMeses) {
         this.valorEmprestimo = valorEmprestimo;
         this.taxaJuros = taxaJuros;
         this.quantMeses = quantMeses;
     }
 
     private void  calculaValorParcela() {
-        double taxaJurosConvertida = this.taxaJuros / 100;
-        double valor1 = Math.pow((1+ taxaJurosConvertida), this.quantMeses);
-        this.valorParcela = this.valorEmprestimo * ((valor1 * taxaJurosConvertida ) / (valor1 - 1));
+        BigDecimal taxaJurosConvertida = this.taxaJuros.divide(CEM);
+        BigDecimal valor1 = (BigDecimal.ONE.add(taxaJurosConvertida)).pow(this.quantMeses);
+        this.valorParcela = this.valorEmprestimo.multiply((valor1.multiply(taxaJurosConvertida)).divide((valor1.subtract(BigDecimal.ONE)), MathContext.DECIMAL128));
     }
 
-    private double calculaJurosParcela(Double saldoDevedor) {
-        double taxaJurosConvertida = this.taxaJuros / 100;
-        return saldoDevedor * taxaJurosConvertida;
+    private BigDecimal calculaJurosParcela(BigDecimal saldoDevedor) {
+        BigDecimal taxaJurosConvertida = this.taxaJuros.divide(CEM);
+        return saldoDevedor.multiply(taxaJurosConvertida);
     }
 
-    private double calculaAmortizacao(Parcela parc) {
-        return parc.getValorParcela()-parc.getValorJuros();
+    private BigDecimal calculaAmortizacao(Parcela parc) {
+        return parc.getValorParcela().subtract(parc.getValorJuros());
     }
 
     public void calculaTabelaPrice() {
-        double saldoDevedor = this.valorEmprestimo;
+        BigDecimal saldoDevedor = this.valorEmprestimo;
         calculaValorParcela();
         for (int i = 0; i < this.quantMeses; i++) {
             Parcela parc = new Parcela() ;
             parc.setValorParcela(this.valorParcela);
             parc.setValorJuros(calculaJurosParcela(saldoDevedor));
             parc.setValorAmortizacao(calculaAmortizacao(parc));
-            saldoDevedor = saldoDevedor - parc.getValorAmortizacao();
-            parc.setValorSaldoDevedor(Math.abs(saldoDevedor));
+            saldoDevedor = saldoDevedor.subtract(parc.getValorAmortizacao());
+            parc.setValorSaldoDevedor(saldoDevedor.abs());
             this.parcelasEmprestimo[i] = parc;
         }
     }
 
     public void imprimeTabelaPrice() {
         if (this.parcelasEmprestimo != null && this.parcelasEmprestimo.length > 0) {
-            double valorPrestacao = this.valorParcela*this.quantMeses;
-            double somatorioJuros = 0.0;
-            double somatorioAmortizacao = 0.0;
+            BigDecimal valorPrestacao = this.valorParcela.multiply(new BigDecimal(this.quantMeses));
+            BigDecimal somatorioJuros = BigDecimal.ZERO;
+            BigDecimal somatorioAmortizacao = BigDecimal.ZERO;
             System.out.printf("\nValor fixo da parcela R$ %.2f, Saldo devedor total R$ %.2f\n\n", this.valorParcela, this.valorEmprestimo);
             for (int i = 1; i <= this.parcelasEmprestimo.length; i++) {
                 Parcela parc = this.parcelasEmprestimo[i-1];
-                somatorioJuros += parc.getValorJuros();
-                somatorioAmortizacao += parc.getValorAmortizacao();
+                somatorioJuros = somatorioJuros.add(parc.getValorJuros());
+                somatorioAmortizacao = somatorioAmortizacao.add(parc.getValorAmortizacao());
                 System.out.printf("Parcela %d | Juros: R$ %.2f | Amortização: R$ %.2f | Saldo devedor: R$ %.2f\n", i, parc.getValorJuros(), parc.getValorAmortizacao(), parc.getValorSaldoDevedor());
             }
             System.out.printf("\nTotal: Prestação R$ %.2f, Juros R$ %.2f, Amortização R$ %.2f\n", valorPrestacao, somatorioJuros, somatorioAmortizacao);

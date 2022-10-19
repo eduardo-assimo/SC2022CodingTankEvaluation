@@ -2,20 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="34661311-c9f2-4b59-968d-641ae02385c8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Task02.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Task03.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Task04.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Task05.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Task06.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Task07.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Task08.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Task09.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/task10/Parcela.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/task10/TabelaPrice.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/task10/Task10.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Task01.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Task01.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Task07.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Task07.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/task10/Parcela.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/task10/Parcela.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/task10/TabelaPrice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/task10/TabelaPrice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/task10/Task10.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/task10/Task10.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +37,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "C:/Users/EDUARDO/workspace/LetsCodeSantanderCoders/Coding Tank/SC2022CodingTankEvaluation",
     "settings.editor.selected.configurable": "preferences.keymap"
   }
 }]]></component>
@@ -99,9 +91,9 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Task10" />
+        <item itemvalue="Application.Task07" />
         <item itemvalue="Application.Task09" />
         <item itemvalue="Application.Task08" />
-        <item itemvalue="Application.Task07" />
         <item itemvalue="Application.Task06" />
       </list>
     </recent_temporary>

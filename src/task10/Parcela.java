@@ -1,41 +1,42 @@
 package task10;
 
-public class Parcela {
-    private double valorParcela;
-    private double valorSaldoDevedor;
-    private double valorJuros;
-    private double valorAmortizacao;
+import java.math.BigDecimal;
 
-    public double getValorParcela() {
+public class Parcela {
+    private BigDecimal valorParcela;
+    private BigDecimal valorSaldoDevedor;
+    private BigDecimal valorJuros;
+    private BigDecimal valorAmortizacao;
+
+    public BigDecimal getValorParcela() {
         return valorParcela;
     }
 
-    public void setValorParcela(double valorParcela) {
+    public void setValorParcela(BigDecimal valorParcela) {
         this.valorParcela = valorParcela;
     }
 
-    public double getValorSaldoDevedor() {
+    public BigDecimal getValorSaldoDevedor() {
         return valorSaldoDevedor;
     }
 
-    public void setValorSaldoDevedor(double valorSaldoDevedor) {
+    public void setValorSaldoDevedor(BigDecimal valorSaldoDevedor) {
         this.valorSaldoDevedor = valorSaldoDevedor;
     }
 
-    public double getValorJuros() {
+    public BigDecimal getValorJuros() {
         return valorJuros;
     }
 
-    public void setValorJuros(double valorJuros) {
+    public void setValorJuros(BigDecimal valorJuros) {
         this.valorJuros = valorJuros;
     }
 
-    public double getValorAmortizacao() {
+    public BigDecimal getValorAmortizacao() {
         return valorAmortizacao;
     }
 
-    public void setValorAmortizacao(double valorAmortizacao) {
+    public void setValorAmortizacao(BigDecimal valorAmortizacao) {
         this.valorAmortizacao = valorAmortizacao;
     }
-
 }
